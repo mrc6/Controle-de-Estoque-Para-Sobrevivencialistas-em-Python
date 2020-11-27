@@ -1,6 +1,6 @@
 # Controle-de-Estoque-Para-Sobrevivencialistas-em-Python
 
-Com este programa é um CLI no qual você poderá gerenciar o estoque de alimentos perecíveis de sua dispensa.
+Este programa é uma CLI no qual você poderá gerenciar o estoque de alimentos perecíveis de sua dispensa.
 
 # Requisitos
 - Python > 3.6
