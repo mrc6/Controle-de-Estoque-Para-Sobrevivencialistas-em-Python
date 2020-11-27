@@ -19,3 +19,4 @@ Este programa é uma CLI no qual você poderá gerenciar o estoque de alimentos 
 - Instale as dependências digitando no terminal `pip3 install -r requirements.txt`
 - Acesse o diretório do projeto digitando no terminal `cd ces`
 - Agora digite o comando `python3 ces.py` para rodar o programa e siga as instruções da tela
+- Ao terminar o uso do programa, no terminal digite `deactivate`
