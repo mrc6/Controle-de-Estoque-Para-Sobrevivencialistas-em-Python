@@ -1,6 +1,8 @@
 # Controle-de-Estoque-Para-Sobrevivencialistas-em-Python
 
 Este programa é uma CLI no qual você poderá gerenciar o estoque de alimentos perecíveis de sua dispensa.
+# Como baixar?
+- No terminal digite o comando `git clone https://github.com/mrc6/Controle-de-Estoque-Para-Sobrevivencialistas-em-Python.git
 
 # Requisitos
 - Python > 3.6
