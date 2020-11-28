@@ -22,3 +22,10 @@ def find_all():
     db = client.stock
     return db.products.find()
     client.close()
+
+
+def find_out_of_date(date):
+    client = MongoClient()
+    db = client.stock
+    return db.products.find({"val": {"$lt": date}})
+    client.close()

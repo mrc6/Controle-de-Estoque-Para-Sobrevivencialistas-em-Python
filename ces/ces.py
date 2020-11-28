@@ -1,5 +1,5 @@
 from datetime import datetime
-from mongo_model import insert_one, delete_one, find_all
+from mongo_model import insert_one, delete_one, find_all, find_out_of_date
 from os import system, name
 
 
@@ -68,10 +68,12 @@ def menu_inicial():
                 input("Digite ENTER para voltar ao menu anterior")
         if choice == 3:
             actual_date = datetime.now()
-            products = find_all()
+            products = find_out_of_date(actual_date)
+            clear()
+            print("Produtos Vencidos")
+            print("Qty Description")
             for product in products:
-                if product["val"] < actual_date:
-                    print(product["name"])
+                print(product["qty"], product["name"])
             input("Digite ENTER para voltar ao menu anterior")
         if choice == 4:
             products = find_all()
