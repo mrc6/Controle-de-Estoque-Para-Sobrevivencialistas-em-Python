@@ -1,5 +1,6 @@
 from datetime import datetime
-from mongo_model import insert_one, delete_one, find_all, find_out_of_date
+from mongo_model import insert_one, delete_one, find_all
+from mongo_model import find_out_of_date, delete_all_out_of_date
 from os import system, name
 
 
@@ -40,14 +41,15 @@ def verify_input_is_number(text):
 
 def menu_inicial():
     choice = -1
-    while choice != 5:
+    while choice != 6:
         clear()
         print("Escolha uma opção: ")
         print("1 - Cadastrar Produto")
         print("2 - Excluir Produto")
         print("3 - Ver Produtos Vencidos")
         print("4 - Ver todos os Produtos")
-        print("5 - Sair do Sistema")
+        print("5 - Excluir Todos os Produtos Vencidos")
+        print("6 - Sair do Sistema")
         choice = verify_input_is_number("Digite a opção escolhida: ")
         if choice == 1:
             name = input("Digite o Nome do Produto: ")
@@ -65,6 +67,7 @@ def menu_inicial():
                 input("Operação não realizada. Digite ENTER")
             else:
                 delete_one({"name": name})
+                print("Produto deletado!")
                 input("Digite ENTER para voltar ao menu anterior")
         if choice == 3:
             actual_date = datetime.now()
@@ -77,9 +80,22 @@ def menu_inicial():
             input("Digite ENTER para voltar ao menu anterior")
         if choice == 4:
             products = find_all()
+            clear()
+            print("Todos os Produtos Cadastrados")
+            print("Qty Description")
             for product in products:
-                print(product["name"])
+                print(product["qty"], product["name"])
             input("Digite ENTER para voltar ao menu anterior")
+        if choice == 5:
+            print("Deseja REALMENTE APAGAR Todos os Produtos Vencidos?")
+            yes_or_no = verify_input_is_number("33 - CONFIRMAR, 0 - DESISTIR ")
+            if yes_or_no != 33:
+                input("Operação não realizada. Digite ENTER")
+            else:
+                actual_date = datetime.now()
+                delete_all_out_of_date(actual_date)
+                print("Produtos Deletados!")
+                input("Digite ENTER para voltar ao menu anterior")
 
 
 menu_inicial()

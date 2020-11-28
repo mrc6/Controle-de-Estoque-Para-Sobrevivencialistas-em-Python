@@ -13,7 +13,6 @@ def delete_one(query):
     client = MongoClient()
     db = client.stock
     db.products.delete_one(query)
-    print("Produto deletado: ")
     client.close()
 
 
@@ -28,4 +27,11 @@ def find_out_of_date(date):
     client = MongoClient()
     db = client.stock
     return db.products.find({"val": {"$lt": date}})
+    client.close()
+
+
+def delete_all_out_of_date(date):
+    client = MongoClient()
+    db = client.stock
+    db.products.delete_many({"val": {"$lt": date}})
     client.close()
