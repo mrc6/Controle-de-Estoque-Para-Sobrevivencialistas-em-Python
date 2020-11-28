@@ -13,6 +13,7 @@ Este programa é uma CLI no qual você poderá gerenciar o estoque de alimentos 
 - Excluir um produto
 - Verificar quais produtos estão vencidos
 - Listar todos os produtos
+- Excluir todos os produtos vencidos
 
 # Como usar
 - Na pasta raiz do projeto, depois de subir o MongoDB, no shell (linux) digite o seguinte comando: `python3 -m venv .venv && source .venv/bin/activate`
