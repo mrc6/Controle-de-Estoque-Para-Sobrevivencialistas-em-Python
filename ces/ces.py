@@ -1,6 +1,7 @@
 from datetime import datetime
-from mongo_model import insert_one, delete_one, find_all
+from mongo_model import insert_one, delete_one
 from mongo_model import find_out_of_date, delete_all_out_of_date
+from mongo_model import group_by_name
 from os import system, name
 
 
@@ -79,12 +80,12 @@ def menu_inicial():
                 print(product["qty"], product["name"])
             input("Digite ENTER para voltar ao menu anterior")
         if choice == 4:
-            products = find_all()
+            products = group_by_name()
             clear()
             print("Todos os Produtos Cadastrados")
             print("Qty Description")
             for product in products:
-                print(product["qty"], product["name"])
+                print(product["total"], product["_id"]["name"])
             input("Digite ENTER para voltar ao menu anterior")
         if choice == 5:
             print("Deseja REALMENTE APAGAR Todos os Produtos Vencidos?")

@@ -35,3 +35,17 @@ def delete_all_out_of_date(date):
     db = client.stock
     db.products.delete_many({"val": {"$lt": date}})
     client.close()
+
+
+def group_by_name():
+    client = MongoClient()
+    db = client.stock
+    return db.products.aggregate([
+        {
+            "$group": {
+                "_id": {"name": "$name"},
+                "total": {"$sum": {"$convert": {"input": "$qty", "to": "int"}}}
+            }
+        }
+    ])
+    client.close()
